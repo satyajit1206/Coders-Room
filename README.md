@@ -50,7 +50,7 @@
 
 ### Real-Time Features
 - **WebSockets** for live code and chat
-- **WebRTC** for voice communication
+- **WebRTC** for voice  communication
 
 ### Package Managers
 - `pnpm`
