@@ -14,7 +14,7 @@ Welcome to **Coders-Room**, a collaborative platform where users can **draw, cod
 - **Real-Time**: WebSockets
 - **Auth & DB connection**: Node
 
----
+-----
 
 ## 📂 Folder Structure
 
@@ -49,7 +49,7 @@ Static assets such as icons and images.
 - `file.svg`, `globe.svg`, `next.svg`, etc.
 
 ### `node_modules/`
-Contains all **installed dependencies**. (Ignored in Git)
+Contains all **installed dependencies**. (Ignored in Git )
 
 ### `config.ts`
 Main **configuration file** for the app.
