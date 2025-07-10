@@ -26,24 +26,26 @@ export function Canvas({
   const [showEditor, setShowEditor] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
 
+  // Sync selected tool with the game instance
   useEffect(() => {
     game?.setTool(selectedTool);
   }, [selectedTool, game]);
 
+  // Initialize the drawing game when canvas is mounted
   useEffect(() => {
     if (canvasRef.current) {
       const g = new Game(canvasRef.current, roomId, socket);
       setGame(g);
 
       return () => {
-        g.destroy();
+        g.destroy(); // Clean up the game instance on component unmount
       };
     }
   }, [canvasRef, roomId, socket]);
 
   return (
     <div className="h-screen relative flex overflow-hidden">
-      {/* Code Editor */}
+      {/* Code Editor Panel (Left Side) */}
       {showEditor && (
         <div className={`h-full fixed w-1/4 left-0 top-0 transform transition-transform duration-300 z-20 overflow-hidden`}>
           <MonacoEditor
@@ -71,40 +73,40 @@ export function Canvas({
         </button>
       )}
 
-      {/* Chat Interface */}
+      {/* Chat Interface (Right Side Panel) */}
       {isChatOpen && (
         <div className={`h-4/5 fixed w-1/4 right-0 top-0 transform transition-transform duration-300 z-20 overflow-hidden`}>
           <ChatInterface isChatOpen={isChatOpen} setIsChatOpen={setIsChatOpen} socket={socket} roomId={roomId} username={username}/>
         </div>
       )}
 
-      {/* Chat Toggle Button */}
+      {/* Chat Component Rendered Twice - Consider if this is intentional */}
       {isChatOpen && (
-      <ChatInterface 
-        isChatOpen={isChatOpen} 
-        setIsChatOpen={setIsChatOpen} 
-        socket={socket} 
-        roomId={roomId} 
-        username={username}
-      />
-    )}
+        <ChatInterface 
+          isChatOpen={isChatOpen} 
+          setIsChatOpen={setIsChatOpen} 
+          socket={socket} 
+          roomId={roomId} 
+          username={username}
+        />
+      )}
 
-    {/* Chat Toggle Button */}
-    {!isChatOpen && (
-      <button
-        onClick={() => setIsChatOpen(true)}
-        className="fixed right-4 top-4 z-30 bg-black rounded-xl shadow-lg p-3 hover:bg-gray-700 transition-colors"
-      >
-        <MessageCircle className="w-5 h-5 text-white" />
-      </button>
-    )}
+      {/* Chat Toggle Button */}
+      {!isChatOpen && (
+        <button
+          onClick={() => setIsChatOpen(true)}
+          className="fixed right-4 top-4 z-30 bg-black rounded-xl shadow-lg p-3 hover:bg-gray-700 transition-colors"
+        >
+          <MessageCircle className="w-5 h-5 text-white" />
+        </button>
+      )}
 
-      {/* Voice Chat */}
+      {/* Voice Chat Component when chat is not open */}
       {!isChatOpen && (
         <VoiceChat roomId={roomId} socket={socket} />
       )}
 
-      {/* Canvas and Topbar */}
+      {/* Main Drawing Canvas */}
       <div className={`h-full w-full transition-all duration-300 ${showEditor ? "pl-1/4" : ""} ${isChatOpen ? "pr-1/4" : ""}`}>
         <canvas
           ref={canvasRef}
@@ -123,6 +125,7 @@ export function Canvas({
   );
 }
 
+// Function to clear the canvas and reload the page
 export async function clearCanvas(roomId: string) {
   const response = await axios.post(`${HTTP_Backend}/clear`, {
     data: {
