@@ -37,7 +37,7 @@
 ### Commit Message Convention
 ```
 <type>(<scope>): <description>
-
+ 
 [optional body]
 [optional footer]
 ```
