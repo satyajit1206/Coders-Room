@@ -1,6 +1,6 @@
 # Coders-Room Contributing Guidelines
 
-## Code Quality & Standards
+## Code Quality & Standards 
 
 ### General Principles
 - Write clean, readable, and maintainable code
