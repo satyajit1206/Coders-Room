@@ -9,7 +9,7 @@ Live Link - https://dev-sketch-frontend.vercel.app/
 ## ✨ Key Features
 
 - 💻 **Live Code Editor**  
-  Collaborate on code in real-time with syntax highlighting — perfect for solving problems together or doing pair programming.
+  Collaborate on code in real-time with syntax highlighting — perfect for solving problems together or doing pair programming. 
 
 - 🎨 **Real-time Canvas**  
   Sketch out ideas, diagrams, or flowcharts live — ideal for whiteboard-style interview prep.
