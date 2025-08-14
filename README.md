@@ -14,7 +14,7 @@ Live Link - https://dev-sketch-frontend.vercel.app/
 - 🎨 **Real-time Canvas**  
   Sketch out ideas, diagrams, or flowcharts live — ideal for whiteboard-style interview prep.
 
-- 💬 **Live Chat**  
+- 💬 **Live Chat**
   Text chat integrated directly into the room so you never miss context during collaboration.
 
 - 🎙 **Voice Chat**  
