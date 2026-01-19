@@ -1,4 +1,4 @@
-# Dev-Sketch Contributing Guidelines
+# Coders-Room Contributing Guidelines
 
 ## Code Quality & Standards
 
