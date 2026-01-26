@@ -98,7 +98,7 @@
 ### Initial Setup
 ```bash
 # Clone repository
-git clone https://github.com/RISHIK92/dev-sketch.git
+git clone https://github.com/satyajit1206/Coders-Room.git
 
 # Install dependencies
 pnpm install
